@@ -6,6 +6,7 @@ import { AppContext } from "./appContext";
 import MainHeader from "./components/mainHeader/mainHeader";
 
 import "./styles.scss";
+import "@fortawesome/fontawesome-free/css/all.min.css"
 
 class App extends React.Component {
   state = { contextValue: "default value" };
