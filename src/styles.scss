@@ -1,0 +1,13 @@
+$primary-color: #eee;
+$secondary-color: #aaa;
+$bg-color: #1f1f1f;
+$font-family: Verdana, Geneva, sans-serif;
+
+html {
+  color: $primary-color;
+  font-family: $font-family;
+}
+body {
+  background-color: $bg-color;
+  margin: 0;
+}

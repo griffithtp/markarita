@@ -13,8 +13,15 @@
   "dependencies": {
     "@material-ui/core": "^4.9.1",
     "@material-ui/icons": "^4.9.1",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "clsx": "^1.1.0",
+    "core-util-is": "^1.0.2",
+    "golden-layout": "^1.5.9",
+    "jquery": "^3.4.1",
     "next": "^9.2.1",
+    "next-compose-plugins": "^2.2.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "recharts": "^2.0.0-beta.1"
