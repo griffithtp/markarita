@@ -4,24 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "clean": "rm dist/bundle.js",
+    "start": "parcel src/index.html",
+    "build-prod": "parcel build src/index.html"
   },
-  "author": "griffithtp",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^4.9.1",
-    "@material-ui/icons": "^4.9.1",
-    "clsx": "^1.1.0",
-    "next": "^9.2.1",
+    "golden-layout": "^1.5.9",
+    "jquery": "^3.4.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "recharts": "^2.0.0-beta.1"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0",
     "typescript": "^3.7.5"
   }
 }
