@@ -2,7 +2,7 @@
 import React from "react";
 import { AppContext } from "../appContext";
 
-export class MyGoldenPanel extends React.Component {
+export class NewsPanel extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -22,12 +22,10 @@ export class MyGoldenPanel extends React.Component {
   render() {
     return (
       <div>
-        <p>This is my panel</p>
-        <input type="text" value={this.state.value} onChange={this.setValue.bind(this)} />
-        <button onClick={this.setContainerTitle.bind(this)}>set title</button>
+        <h2>NEWS Panel</h2>
         <AppContext.Consumer>
           {value => {
-            return <div>Context value: {value}</div>;
+            return <div>{value}</div>;
           }}
         </AppContext.Consumer>
       </div>

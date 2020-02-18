@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { GoldenLayoutComponent } from "./lib/goldenLayout/goldenLayoutComponent";
-import { MyGoldenPanel } from "./components/myGoldenPanel";
+import { WatchListPanel, NewsPanel, StockPricesPanel } from "./panels";
 import { AppContext } from "./appContext";
 import MainHeader from "./components/mainHeader/mainHeader";
 
@@ -25,7 +25,7 @@ class App extends React.Component {
           </div>
         </MainHeader>
         <AppContext.Provider value={this.state.contextValue}>
-          <GoldenLayoutComponent //config from simple react example: https://golden-layout.com/examples/#qZXEyv
+          <GoldenLayoutComponent
             htmlAttrs={{ style: { display: "flex", height: "calc(100vh - 2em)", width: "100%" } }}
             config={{
               content: [
@@ -33,22 +33,29 @@ class App extends React.Component {
                   type: "row",
                   content: [
                     {
-                      title: "A react component",
+                      title: "Watchlist",
                       type: "react-component",
-                      component: "testItem",
-                      props: { value: "I'm on the left" }
+                      component: "watchlistPanel",
+                      props: { value: "News Panel props.value" }
                     },
                     {
-                      title: "Another react component",
+                      title: "News",
                       type: "react-component",
-                      component: "testItem"
+                      component: "newsPanel"
+                    },
+                    {
+                      title: "Stocks",
+                      type: "react-component",
+                      component: "stockPricesPanel"
                     }
                   ]
                 }
               ]
             }}
             registerComponents={(myLayout: any) => {
-              myLayout.registerComponent("testItem", MyGoldenPanel);
+              myLayout.registerComponent("watchlistPanel", WatchListPanel);
+              myLayout.registerComponent("newsPanel", NewsPanel);
+              myLayout.registerComponent("stockPricesPanel", StockPricesPanel);
             }}
           />
         </AppContext.Provider>
