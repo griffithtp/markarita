@@ -53,8 +53,9 @@ export class GoldenLayoutComponent extends React.Component {
       this.props.config || {},
       this.containerRef.current
     );
-    if (this.props.registerComponents instanceof Function)
+    if (this.props.registerComponents instanceof Function) {
       this.props.registerComponents(this.goldenLayoutInstance);
+    }
     this.goldenLayoutInstance.reactContainer = this;
     this.goldenLayoutInstance.init();
   }
@@ -67,8 +68,9 @@ const ReactComponentHandler = GoldenLayout["__lm"].utils.ReactComponentHandler;
 class ReactComponentHandlerPatched extends ReactComponentHandler {
   _render() {
     var reactContainer = this._container.layoutManager.reactContainer; //Instance of GoldenLayoutComponent class
-    if (reactContainer && reactContainer.componentRender)
+    if (reactContainer && reactContainer.componentRender) {
       reactContainer.componentRender(this);
+    }
   }
   _destroy() {
     //ReactDOM.unmountComponentAtNode( this._container.getElement()[ 0 ] );
