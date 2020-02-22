@@ -5,6 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./goldenLayout-dependencies";
 import GoldenLayout from "golden-layout";
+import { GoldenLayoutDefaultConfig } from "./goldenLayoutService";
 import "golden-layout/src/css/goldenlayout-base.css";
 import "golden-layout/src/css/goldenlayout-dark-theme.css";
 import "./goldenLayout.scss";
@@ -49,8 +50,9 @@ export class GoldenLayoutComponent extends React.Component {
   }
 
   componentDidMount() {
+    const savedLayoutConfig = this.getSavedLayout();
     this.goldenLayoutInstance = new GoldenLayout(
-      this.props.config || {},
+      savedLayoutConfig,
       this.containerRef.current
     );
     if (this.props.registerComponents instanceof Function) {
@@ -58,6 +60,19 @@ export class GoldenLayoutComponent extends React.Component {
     }
     this.goldenLayoutInstance.reactContainer = this;
     this.goldenLayoutInstance.init();
+    this.onStateChanged();
+  }
+
+  getSavedLayout() {
+    const savedLayout = localStorage.getItem("LayoutConfig");
+    return savedLayout ? JSON.parse(savedLayout) : GoldenLayoutDefaultConfig();
+  }
+
+  onStateChanged() {
+    this.goldenLayoutInstance.on("stateChanged", () => {
+      var state = JSON.stringify(this.goldenLayoutInstance.toConfig());
+      localStorage.setItem("LayoutConfig", state);
+    });
   }
 }
 
