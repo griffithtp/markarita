@@ -37,7 +37,7 @@ class NewsPanel extends React.Component<Props, State> {
   };
 
   render() {
-    let contextValue = this.context;
+    // let contextValue = this.context;
     return (
       <div style={{ overflowY: "auto", height: "inherit" }}>
         {/* <div>context value: {contextValue}</div> */}

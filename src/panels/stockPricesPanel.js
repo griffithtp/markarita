@@ -25,7 +25,7 @@ export class StockPricesPanel extends React.Component {
         <h2>Stock Prices Panel</h2>
         <AppContext.Consumer>
           {value => {
-            return <div>{value}</div>;
+            return <div>{value.selectedCompanyÍ}</div>;
           }}
         </AppContext.Consumer>
       </div>

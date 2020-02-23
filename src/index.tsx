@@ -1,9 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { GoldenLayoutComponent } from "./lib/goldenLayout/goldenLayoutComponent";
-import {
-  GoldenLayoutRegisterComponents,
-} from "./lib/goldenLayout";
+import { GoldenLayoutRegisterComponents } from "./lib/goldenLayout";
 
 import { AppContext } from "./appContext";
 import MainHeader from "./components/mainHeader/mainHeader";
@@ -12,21 +10,34 @@ import "./styles.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 class App extends React.Component {
-  state = { contextValue: "default value" };
+  state = {
+    value: '',
+    contextValue: {
+      selectedCompany: '',
+      companyList: [],
+      setSelection: this.setSelection.bind(this)
+    }
+  };
+
+  setSelection() {
+    console.log("setSelection call");
+    this.setState({ value: "set selection clicked" });
+  }
+
   render() {
     return (
       <React.Fragment>
         <MainHeader>
           <div>
-            change context value:
             <input
-              value={this.state.contextValue}
+              value={this.state.value}
               onChange={e => {
-                this.setState({ contextValue: e.target.value });
+                this.setState({ value: e.target.value });
               }}
             />
           </div>
         </MainHeader>
+        selected: {this.state.contextValue.selectedStock}
         <AppContext.Provider value={this.state.contextValue}>
           <GoldenLayoutComponent
             htmlAttrs={{
