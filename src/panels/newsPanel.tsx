@@ -37,11 +37,8 @@ class NewsPanel extends React.Component<Props, State> {
   };
 
   render() {
-    // let contextValue = this.context;
     return (
       <div style={{ overflowY: "auto", height: "inherit" }}>
-        {/* <div>context value: {contextValue}</div> */}
-        {/* <button onClick={this.onFetchNews}>fetch news</button> */}
         <ul>
           <li>articles: {this.state.articles.length}</li>
           {this.state.articles.map((article: any, key: number) => {

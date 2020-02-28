@@ -1,7 +1,10 @@
+
 import React from "react";
 import { AppContext } from "../appContext";
 
-export class WatchListPanel extends React.Component {
+export class StockPricesPanel extends React.Component {
+  static contextType = AppContext;
+
   constructor(props) {
     super(props);
     this.props = props;
@@ -9,29 +12,20 @@ export class WatchListPanel extends React.Component {
       value: this.props.value || "blaa"
     };
   }
-
+  
   setValue(e) {
     this.setState({ value: e.target.value });
-  }
+  };
 
   setContainerTitle() {
     this.props.glContainer.setTitle(this.state.value);
-  }
+  };
 
   render() {
     return (
       <div>
-        <h2>Watchlist Panel</h2>
-        <AppContext.Consumer>
-          {value => {
-            return (
-              <div>
-                {value.selectedCompany}
-                <button onClick={value.setSelection}>set selection</button>
-              </div>
-            );
-          }}
-        </AppContext.Consumer>
+        <h2>Stock Prices Panel</h2>
+        {this.context.selectedStock}
       </div>
     );
   }
