@@ -13,14 +13,10 @@ interface State extends Partial<Props> {}
 class NewsPanel extends React.Component<Props, State> {
   static contextType = AppContext;
 
-  constructor(props: Props) {
-    super(props);
-    // this.props = props;
-    this.state = {
-      value: this.props.value || "blaa",
-      articles: []
-    };
-  }
+  state = {
+    value: this.props.value || "blaa",
+    articles: []
+  };
 
   componentDidMount() {
     this.onFetchNews();

@@ -6,7 +6,7 @@ interface Props {
   glContainer: any;
 }
 
-class WatchListPanel extends React.Component<Props> {
+class StockPricesPanel extends React.Component<Props> {
   state = {
     value: this.props.value || "blaa"
   };
@@ -22,13 +22,13 @@ class WatchListPanel extends React.Component<Props> {
   render() {
     return (
       <div>
-        <h2>Watchlist Panel</h2>
+        <h2>Stock Prices Panel</h2>
         {this.context.selectedStock}
       </div>
     );
   }
 }
 
-WatchListPanel.contextType = AppContext;
+StockPricesPanel.contextType = AppContext;
 
-export { WatchListPanel };
+export { StockPricesPanel };

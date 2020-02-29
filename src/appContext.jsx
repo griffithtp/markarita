@@ -1,11 +1,11 @@
-import React, { useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import appReducer from "./appReducer";
 
 const initialState = {
   selectedStock: 'APPL',
   stocks: []
 }
-export const AppContext = React.createContext(initialState);
+export const AppContext = createContext(initialState);
 
 export const AppProvider = ({children}) => {
   const [state, dispatch] = useReducer(appReducer, initialState)
@@ -29,7 +29,6 @@ export const AppProvider = ({children}) => {
     addStock,
     deleteStock,
   }
-
 
   return (
     <AppContext.Provider value={providerState}>
